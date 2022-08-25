@@ -30,11 +30,11 @@
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div");
             div.classList.add('popup');
-            div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction()">' + '    ' + data[i].name + '<span id="removeBtn" class="removeBtn">Remove</span>';
+            div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction(' + data[i].id + ')">' + '    ' + data[i].name + '<span id="removeBtn" class="removeBtn">Remove</span>';
             let dropdownDiv = document.createElement("div");
             dropdownDiv.classList.add('dropdown-content');
             dropdownDiv.classList.add('hide');
-            dropdownDiv.setAttribute("id", "myDropdown");
+            dropdownDiv.setAttribute("id", "myDropdown" + data[i].id);
             dropdownDiv.innerText = 'EUR: ' + data[i].eur + ' USD: ' + data[i].usd + ' RON: ' + data[i].ron;
             mainContainer.appendChild(div);
             mainContainer.appendChild(dropdownDiv);
