@@ -25,7 +25,7 @@
         this.parentNode.parentNode.removeChild(this.parentNode);
     }
 
-    function appendData(data) {
+   async function appendData(data) {
         let mainContainer = document.getElementById("myData");
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div");
@@ -35,7 +35,7 @@
             dropdownDiv.classList.add('dropdown-content');
             dropdownDiv.classList.add('hide');
             dropdownDiv.setAttribute("id", "myDropdown" + data[i].id);
-            dropdownDiv.innerText = 'EUR: ' + data[i].eur + ' USD: ' + data[i].usd + ' RON: ' + data[i].ron;
+            dropdownDiv.innerText = btcValues;
             mainContainer.appendChild(div);
             mainContainer.appendChild(dropdownDiv);
         }
