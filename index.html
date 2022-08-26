@@ -3,22 +3,51 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="main.js"></script>
 </head>
 <body>
 <h1>Crypto tracker</h1>
-<ul>
-    <li>
-        <img src="./images/btc.png" class="logo" alt="">
-        Bitcoin
-    </li>
-    <li>
-        <img src="./images/eth.png" class="logo" alt="">
-        Ethereum
-    </li>
-    <li>
-        <img src="./images/xrp.png" class="logo" alt="">
-        Ripple
-    </li>
-</ul>
+<input type="text" id="filterInput" class="filterInput" onkeyup="filterFunction()" placeholder="Search...">
+<div id="myData"></div>
+<script type="text/javascript">
+    fetch('db.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+    function remove() {
+        this.parentNode.parentNode.removeChild(this.parentNode);
+    }
+
+   async function appendData(data) {
+        let mainContainer = document.getElementById("myData");
+        for (let i = 0; i < data.length; i++) {
+            let div = document.createElement("div");
+            div.classList.add('popup');
+            div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction(' + data[i].id + ')">' + '    ' + data[i].name + '<span id="removeBtn" class="removeBtn">Remove</span>';
+            let dropdownDiv = document.createElement("div");
+            dropdownDiv.classList.add('dropdown-content');
+            dropdownDiv.classList.add('hide');
+            dropdownDiv.setAttribute("id", "myDropdown" + data[i].id);
+            dropdownDiv.innerText = btcValues;
+            mainContainer.appendChild(div);
+            mainContainer.appendChild(dropdownDiv);
+        }
+
+        let button = document.querySelectorAll('span');
+
+        for(let i = 0 ; i < data.length ; i++) {
+            button[i].addEventListener('click', remove, false);
+        }
+    }
+
+</script>
+
 </body>
 </html>
