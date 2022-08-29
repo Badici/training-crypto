@@ -21,8 +21,10 @@
             console.log('error: ' + err);
         });
 
-    function remove() {
-        this.parentNode.parentNode.removeChild(this.parentNode);
+    function removeFunction(id) {
+        // this.parentNode.parentNode.removeChild(this.parentNode);
+        document.getElementById("mainDiv1").innerHTML = 'hello';
+        return true;
     }
 
    async function appendData(data) {
@@ -30,6 +32,7 @@
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div");
             div.classList.add('popup');
+            div.setAttribute("id", "mainDiv" + data[i].id);
             div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction(' + data[i].id + ')">' + '    ' + data[i].name + '<span id="removeBtn" class="remove-btn">Remove</span>';
             let dropdownDiv = document.createElement("div");
             dropdownDiv.classList.add('dropdown-content');
@@ -40,10 +43,16 @@
             mainContainer.appendChild(dropdownDiv);
         }
 
-        let button = document.querySelectorAll('span');
+
+
+        let button = document.querySelectorAll('[id=removeBtn]');
 
         for(let i = 0 ; i < data.length ; i++) {
-            button[i].addEventListener('click', remove, false);
+            function removeFunction() {
+                document.getElementById("mainDiv" + data[i].id).remove();
+                return true;
+            }
+            button[i].onclick =  removeFunction;
         }
     }
 

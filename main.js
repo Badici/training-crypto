@@ -63,7 +63,7 @@ xhr.onreadystatechange = function () {
             }
         }
         document.getElementById('myDropdown1').innerHTML = btcValues;
-        console.log(btcValues);
+        // console.log(btcValues);
     }};
 
 xhr.send();
@@ -89,7 +89,7 @@ xhrEth.onreadystatechange = function () {
             }
         }
         document.getElementById('myDropdown2').innerHTML = ethValues;
-        console.log(ethValues);
+        // console.log(ethValues);
     }};
 
 xhrEth.send();
@@ -114,7 +114,7 @@ xhrXrp.onreadystatechange = function () {
             }
         }
         document.getElementById('myDropdown3').innerHTML = xrpValues;
-        console.log(xrpValues);
+        // console.log(xrpValues);
     }};
 
 xhrXrp.send();
