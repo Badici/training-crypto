@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Crypto tracker</h1>
-<input type="text" id="filterInput" class="filterInput" onkeyup="filterFunction()" placeholder="Search...">
+<input type="text" id="filterInput" class="filter-input" onkeyup="filterFunction()" placeholder="Search...">
 <div id="myData"></div>
 <script type="text/javascript">
     fetch('db.json')
@@ -30,7 +30,7 @@
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div");
             div.classList.add('popup');
-            div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction(' + data[i].id + ')">' + '    ' + data[i].name + '<span id="removeBtn" class="removeBtn">Remove</span>';
+            div.innerHTML = '<img src="./images/' + data[i].img + '" class="logo dropdown" alt="" onclick="dropdownFunction(' + data[i].id + ')">' + '    ' + data[i].name + '<span id="removeBtn" class="remove-btn">Remove</span>';
             let dropdownDiv = document.createElement("div");
             dropdownDiv.classList.add('dropdown-content');
             dropdownDiv.classList.add('hide');

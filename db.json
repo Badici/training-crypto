@@ -3,27 +3,18 @@
     "id": "1",
     "name": "Bitcoin",
     "short": "btc",
-    "img": "btc.png",
-    "eur": 21214.89,
-    "usd": 21193.70,
-    "ron": 103512.15
+    "img": "btc.png"
   },
   {
     "id": "2",
     "name": "Ethereum",
     "short": "eth",
-    "img": "eth.png",
-    "eur": 81214.89,
-    "usd": 21193.70,
-    "ron": 503512.15
+    "img": "eth.png"
   },
   {
     "id": "3",
     "name": "Ripple",
     "short": "xrp",
-    "img": "xrp.png",
-    "eur": 21214.89,
-    "usd": 41193.70,
-    "ron": 303512.15
+    "img": "xrp.png"
   }
 ]
